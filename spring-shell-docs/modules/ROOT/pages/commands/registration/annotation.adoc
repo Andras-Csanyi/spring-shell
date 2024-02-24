@@ -3,6 +3,9 @@
 
 ifndef::snippets[:snippets: ../../test/java/org/springframework/shell/docs]
 
+Classes annotated with `@Command` either on class or method level considered as _Configuration_ classes
+for the shell application.
+
 `@Command` annotation when used on a method marks it as a candidate for command registration.
 In below example a command `example` is defined.
 
@@ -25,8 +28,9 @@ Using a `@Command` will not automatically register command targets, instead it i
 of Spring umbrella and provides better flexibility for a user being inclusive rather than exclusive
 for command targets.
 
-You can define target classes using `@EnableCommand`. It will get picked from all _Configuration_
-classes.
+When only a certain commands need to be available in the application and others not, listing
+the enabled _Configuration_ classes in `@EnableCommand` annotation makes them available, while 
+the not listed ones remain disabled.
 
 [source, java, indent=0]
 ----
